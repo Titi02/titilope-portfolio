@@ -1,0 +1,28 @@
+# Operating system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+._*
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files and logs
+*.log
+*.tmp
+.temp/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+
+# Placeholder CV — keep locally, exclude from Git
+Titilope-CV.pdf
