@@ -871,12 +871,13 @@ strong, b {
   animation: heroFloatA 5.4s ease-in-out infinite;
 }
 
-/* 2. Code Brackets: Hidden on mobile to ensure zero crowding around the H1 heading */
+/* 2. Code Brackets: Mobile placement (delicately tucked high in the open upper-right padding above H1) */
 .hero__deco--code {
-  display: none;
-  top: 12%;
-  right: var(--space-md);
-  width: 44px;
+  display: block;
+  top: -56px;
+  right: 0;
+  width: 32px;
+  opacity: 0.5;
   animation: heroFloatB 4.6s ease-in-out 0.8s infinite;
 }
 
@@ -1814,7 +1815,7 @@ body,
   padding-inline: var(--space-sm); /* 20px mobile */
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-xs);
 }
 
@@ -1822,45 +1823,8 @@ body,
   font-size: var(--text-small);
   color: var(--color-text-secondary);
   max-width: none;
-}
-
-.site-footer__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
-}
-
-.site-footer__link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px; /* Touch target (AGENTS.md §5, design.md §8.1) */
-  padding-inline: 4px;
-  font-size: var(--text-small);
-  font-weight: 500;
-  color: var(--color-text-secondary);
-  transition: color var(--transition-theme);
-}
-
-.site-footer__link:hover {
-  color: var(--color-accent);
-}
-
-.site-footer__link:visited {
-  color: var(--color-text-secondary);
-}
-
-/* Download CV link (matches footer link styling) */
-.site-footer__link--cv {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-3xs); /* 8px between icon and text */
-}
-
-.site-footer__cv-icon {
-  width: 14px;
-  height: 14px;
-  display: block;
-  flex-shrink: 0;
+  width: 100%; /* Fills the container so the text can wrap on narrow viewports */
+  text-align: center;
 }
 
 
@@ -1954,9 +1918,30 @@ body,
   /* ---- Footer ---- */
   .site-footer__container {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding-inline: var(--space-lg);
+  }
+}
+
+/* -----------------------------------------------------------------
+   7.1.1 Wider Tablet & Desktop Mode (900px+)
+   Activates two-column About layout when sufficient horizontal space
+   is available (e.g. mobile "Desktop site" mode at 980px).
+   ----------------------------------------------------------------- */
+@media (min-width: 900px) {
+
+  /* ---- About — Two-column layout ---- */
+  .about__grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--space-2xl); /* 48px */
+    align-items: center;
+    margin-top: var(--space-xl); /* 40px */
+  }
+
+  .about__photo-wrapper {
+    max-width: 300px;
   }
 }
 
